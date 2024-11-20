@@ -8,4 +8,4 @@ resources:
 images:
   - name: vandalizem
     newName: rg.fr-par.scw.cloud/djnd/vandalizem
-    newTag: 'latest'
+    newTag: '370498ccc1e28c6f59f95e9f890a4e3468127f2a'
