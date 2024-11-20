@@ -1,0 +1,34 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: vandalizem
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-production"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - vandalizem.djnd.si
+        - vandalizem.danesjenovdan.si
+      secretName: vandalizem-tls
+  rules:
+    - host: vandalizem.djnd.si
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: vandalizem
+                port:
+                  number: 80
+    - host: vandalizem.danesjenovdan.si
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: vandalizem
+                port:
+                  number: 80

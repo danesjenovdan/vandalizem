@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vandalizem
+  labels:
+    app: vandalizem
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vandalizem
+  template:
+    metadata:
+      labels:
+        app: vandalizem
+    spec:
+      containers:
+        - name: vandalizem
+          image: vandalizem
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              memory: 50Mi
+              cpu: 50m
+            limits:
+              memory: 50Mi
+              cpu: 50m
